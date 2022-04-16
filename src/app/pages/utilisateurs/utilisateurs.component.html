@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+
+<div class="container">
+    <h1>User List</h1>
+
+    <div class="text-center mt-5" *ngIf="isLoading != false">
+        <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        
+    </div>
+    <div class="alert alert-danger mt-5" *ngIf="errTXT !=''">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa tempore aperiam deleniti? Aliquid ducimus tempore architecto atque voluptatum, fugit optio doloribus quaerat magnam possimus est incidunt rem velit placeat tenetur!
+    
+    </div>
+    
+    <table class="table mt-5" *ngIf="users.length != 0" >
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">prenom</th>
+            <th scope="col">nom</th>
+            <th scope="col">username</th>
+            <th scope="col">Date de naissance</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let u of users">
+            <td>{{ u.id }}</td>  
+            <td>{{ u.prenom }}</td> 
+            <td>{{ u.nom }}</td> 
+            <td>{{ u.username }}</td> 
+            <td>{{ u.naissance }}</td> 
+    
+          </tr>
+          
+        </tbody>
+      </table>
+</div>
+

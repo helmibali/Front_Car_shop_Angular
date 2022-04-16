@@ -18,20 +18,43 @@
         <thead>
           <tr>
             <th scope="col">#</th>
+            <th scope="col">photo</th>
             <th scope="col">prenom</th>
             <th scope="col">nom</th>
             <th scope="col">username</th>
             <th scope="col">Date de naissance</th>
+            <th scope="col">roles</th>
+            <th scope="col"></th>
             <th scope="col"></th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let u of users">
-            <td>{{ u.id }}</td>  
+            <td>{{ u.user_id }}</td> 
+            <td>
+              <a href="#"><img class="card-img-top img-responsive"
+                  src = "{{'/api/ImgUser/'+u.user_id}}" 
+                  style = "height :70px;width:fil-content"
+                 alt=""></a>
+          </td> 
             <td>{{ u.prenom }}</td> 
             <td>{{ u.nom }}</td> 
             <td>{{ u.username }}</td> 
-            <td>{{ u.naissance }}</td> 
+            <td>{{ u.naissance|date:'dd/MM/yyyy'}}</td> 
+            <td>
+              <ul  *ngFor="let role of u.roles">
+                <li>
+                    {{ role.role }}
+                </li>
+              </ul>
+            </td>
+         
+           <td><a  class="btn btn-danger">
+            <i class="fa fa-trash">&nbsp;</i>Supprimer</a>
+          </td>
+          <td><a  class="btn btn-info">
+            <i class="fa fa-edit"></i>&nbsp;Modifier</a>
+          </td>
     
           </tr>
           
